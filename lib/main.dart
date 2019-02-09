@@ -20,7 +20,8 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          textPart()
+          textPart(),
+          phoneField()
         ],
       )
     );
@@ -53,4 +54,18 @@ class MyHomePage extends StatelessWidget {
       ),
     );
   }
+
+  Widget phoneField(){
+    return Container(
+      padding: EdgeInsets.only(left: 55.0, right: 55.0),
+      child: TextField(
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          hintText: 'Phone number',
+          labelText: 'Phone number'
+        ),
+      ),
+    );
+  }
+
 }
