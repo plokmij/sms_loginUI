@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../blocs/provider.dart';
 import '../blocs/bloc.dart';
+import 'otp_verification.dart';
 
 class PhoneNumberInput extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class PhoneNumberInput extends StatelessWidget {
         textPart(),
         phoneField(bloc),
         Spacer(
-          flex: 2,
+          flex: 1,
         ),
         button(bloc),
       ],
@@ -73,7 +74,10 @@ class PhoneNumberInput extends StatelessWidget {
             color: Colors.black,
             child: Text('NEXT'),
             onPressed: snapshot.hasError ? null : (){
-              print('It fucking works');
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => phoneVerification(),
+              ));
+              bloc.submit();
             },
           ),
         );
