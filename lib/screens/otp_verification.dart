@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../blocs/bloc.dart';
 import '../blocs/provider.dart';
+import 'package:pin_entry_text_field/pin_entry_text_field.dart';
 
 class phoneVerification extends StatelessWidget{
   Widget build(BuildContext context){
@@ -9,6 +10,7 @@ class phoneVerification extends StatelessWidget{
       body: Column(
         children: <Widget>[
           textPart(bloc),
+          pinEntryField()
         ],
       ),
     );
@@ -39,5 +41,13 @@ class phoneVerification extends StatelessWidget{
     );
   }
 
+  Widget pinEntryField(){
+    return PinEntryTextField(
+      fields: 4,
+      onSubmit: (String pin){
+        print(pin);
+      },
+    );
+  }
   
 }
